@@ -8,10 +8,6 @@ public class SignOperatorExample {
 		System.out.println(result1);
 		int result2 = -x; // -(-100) -> 100;
 		System.out.println(result2);
-		
-		
-		
-		
 	}
 
 }

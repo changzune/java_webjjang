@@ -9,7 +9,7 @@ package ch02var;
 		char charValue = (char) intValue; 
 		System.out.println(intValue + "-" + charValue);
 		
-		
+	
 		double doubleValue = 3.14;
 		//큰데이터  작은 데이터 타입으로 저장하면 데이터 손실이 있어서 오류가 발생된다.
 		intValue = (int) doubleValue; //소실점 있는 숫자로 할 때 캐스틍하면 날아간다.

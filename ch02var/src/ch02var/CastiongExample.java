@@ -5,7 +5,7 @@ package ch02var;
 	public static void main(String[] args) {
 		int intValue = 44032;
 		// charVlaue가 intVlaue가 작다. 그러면 데이터 손실이 발생한다. 오류가 발생한다.
-		// 큰데이터를 작은 타입으로 저장 할 때는 강제 캐스팅 해줘야한다.
+		// 큰데이터를 작은 타입으로 저장 할 때는 강제 캐스팅 해줘야한다..
 		char charValue = (char) intValue; 
 		System.out.println(intValue + "-" + charValue);
 		

@@ -24,7 +24,7 @@ public class BMI {
 
 		System.out.println("몸무게 : " + x + "키 :" + y + "Bmi 지수 =" + bmi);
 		
-		if(bmi < 20) 
+		if(bmi < 20)
 			System.out.println("저체중 입니다.");
 		else if(bmi <= 24)
 			System.out.println("정상 입니다.");

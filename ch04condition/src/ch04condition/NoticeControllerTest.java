@@ -41,11 +41,12 @@ public class NoticeControllerTest {
 		case 0:
 			System.out.println("프로그램 종료");
 		
-			
+		sc.close();
+		System.exit(0);
+		default:
+		System.out.println("잘못된 메뉴를 선택 하셨습니다.");
+		break;
 			//실행하고 메뉴에서 1 -> 0 : 소스를 복사붙여 넣기하고. 결과 화면을 캡쳐해서 답글로 올려 주세요.
-			
-			
-
 		}
 		
 		

@@ -20,7 +20,8 @@ public class ArrayForExmaple {
 		for(int i= 0; i <= scores.length-1; i++)System.out.println(scores[i]);
 		for(int i= 0; i < scores.length; i++)System.out.println(scores[i]);
 		
-		
+		// 향상된 for문(foreach문) -각각의 데이터에 대해서 처리를 하도록 하는것
+		for(int score : scores) System.out.println(score);
 		
 		
 		

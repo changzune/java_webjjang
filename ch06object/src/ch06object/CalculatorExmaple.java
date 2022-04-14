@@ -16,6 +16,7 @@ public class CalculatorExmaple {
 		byte y = 4;
 		// 전달되는 값이 꼭 맞는 데이터를 전달하는 메서드를 
 		// 찾아간다. 그런데 딱맞는 데이터 타입없으면 자동캐스팅 되는곳을 찾아간다.
+		// byte -> int  : 데이터 손실이 없어서 자동 캐스팅 된다
 		double result2 =myCalc.divide(10, 4);
 		System.out.println(result2);
 		// 전원을 끈다.

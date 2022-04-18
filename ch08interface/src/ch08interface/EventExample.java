@@ -7,6 +7,9 @@ public class EventExample {
 		//필요한 이벤트만 호출을 해서 사용한다.
 		boardEvent.click();
 		boardEvent.doubleClick();
+		BoardAdapterEvent boardAdapterEvent = new BoardAdapterEvent();
+		boardAdapterEvent.click();
+		
 		
 		
 		

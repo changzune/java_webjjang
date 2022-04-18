@@ -6,7 +6,7 @@ public class BoardAdapterEvent extends EventAdapter {
 	
 	@Override //상속받은 메서드를 제정의하고 있다는 명시이다.
 	public void click() {
-		
+		System.out.println("어댑터를 이요한 게시판 클릭 이벤트");
 	}
 	
 	

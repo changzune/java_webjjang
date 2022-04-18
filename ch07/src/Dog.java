@@ -1,0 +1,21 @@
+
+public class Dog extends Animal {
+	
+	// 동물의 종류를 세팅하는 처리문 ->  생성자에서 해결 (한번만하고 바뀌지 않는다.)
+	public Dog() {
+		this.kind = "포유류";
+	}
+
+	//재정의 - 부모클래스의 추상 매서드는 반드시 재정의해서 사용해야만한다.
+	@Override
+	public void sound() {
+		// TODO Auto-generated method stub
+		System.out.println("멍멍");
+	}
+	
+	public void print() {
+		System.out.println("강아지");
+		
+	}
+
+}

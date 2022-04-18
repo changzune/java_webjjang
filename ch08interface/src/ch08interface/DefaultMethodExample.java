@@ -20,6 +20,7 @@ public class DefaultMethodExample {
 			}
 		};
 		mi3.method1();
+		//자바 화면 만드는 AWT /Swing 같은 처리를 위한 이벤트처릴위해 많이 사용한다.
 		executeMethod1(new MyInterface() {
 			
 			@Override

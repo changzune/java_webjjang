@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class BoardList {
+public class BoardView {
 
 	public static void main(String[] args) {
 		//DB접속정보
@@ -32,12 +32,15 @@ public class BoardList {
 			System.out.println("2. 오라클 서버 연결 완료 : " + con);
 			
 			// 3.실행할 SQL을 작성
-			String sql = "select no, title, writer, writeDate, hit "
-					+ "from board order by no desc";
+			// ? 한개는 데이터 한개를 의미한 실행전에 데이터와 바꿔치기한다. -> 데이터 세팅
+			String sql = "select no, title, content, writer, writeDate, hit "
+					+ "from board where no = ?";
 			System.out.println("3.실행할 sql 문장 : " + sql );
 			
 			// 4.작성된 커리를 실행하기 위한 객체 & 데이터 세팅 
 			pstmt = con.prepareStatement(sql);
+			//Set데이터 타입 (?의 순서번호, 데이터 타입의 데이터) 
+			pstmt.setLong(1, 2);
 			System.out.println("4.실행객체 생성 설정 완료 : " + pstmt );
 			
 			// 5.실행 - select : executeQuery() / insert, update, delete : executeUpdate()
@@ -45,24 +48,20 @@ public class BoardList {
 			System.out.println("5.실행완료 : "  +  rs);
 			
 			//6.표시 또는 데이터 담기 
-			if(rs != null) {
-				//next 다음 데이터가 있으면 true를 리턴해준다. 작업 데이터의 포인트를 다음 데이터로 이동시켜준다.
-				while(rs.next()) {
-					//rs.get데이터타입("select의 데이터 타입")
-					System.out.print(" | " + rs.getLong("no"));
-					System.out.print(" | " + rs.getString("title"));
-					System.out.print(" | " + rs.getString("writer"));
-					System.out.print(" | " + rs.getString("writeDate"));
-					System.out.print(" | " +rs.getLong("hit"));
-					System.out.println();
-				}
-			}
+			//next 다음 데이터가 있으면 true를 리턴해준다. 작업 데이터의 포인트를 다음 데이터로 이동시켜준다.
+			if(rs != null && rs.next()) {
+				//rs.get데이터타입("select의 데이터 타입")
+				System.out.println("번호 : " + rs.getLong("no"));
+				System.out.println("제목 : " + rs.getString("title"));
+				System.out.println("내용 : " + rs.getString("content"));
+				System.out.println("작성자 : " + rs.getString("writer"));
+				System.out.println("작성일 : " + rs.getString("writeDate"));
+				System.out.println("조회수 : " +rs.getLong("hit"));
 			
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+				}
+		
+			
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 				try {

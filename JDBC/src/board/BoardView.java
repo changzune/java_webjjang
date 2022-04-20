@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class BoardView {
-
+	//게시판 글보기
 	public static void main(String[] args) {
 		//DB접속정보
 		String driver = "oracle.jdbc.driver.OracleDriver";

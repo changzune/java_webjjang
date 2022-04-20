@@ -9,7 +9,7 @@ public class BoardDelete {
 	
 	public static void main(String[] args) {
 		//데이터
-		long no = 97;
+		long no = 3;
 		
 		//DB 정보  - Connection을 만들기
 		String driver = "oracle.jdbc.OracleDriver";
@@ -29,20 +29,26 @@ public class BoardDelete {
 			con = DriverManager.getConnection(url, UID, UPW);
 			System.out.println("2번 연결");
 			//3.sql
-			String sql = " delete from board where no = 97";
+			String sql = " delete from board where no = ? ";
+			System.out.println("3.sql" + sql);
 			//4.실행객체
 			pstmt = con.prepareStatement(sql);
+			pstmt.setLong(1, no);
+			System.out.println("4.실행객체 - " + pstmt);
 			//5.실행
 			int result = pstmt.executeUpdate();
+			System.out.println("5.실행완료" + result);
 			//6.표시
-			
-			
-			
-			
+			System.out.println("6.표시 - 게시판 글이 수정되었습니다." + no);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
+				if(con != null)con.close();
+				if(pstmt != null)con.close();
+				
+				
 				
 			} catch (Exception e2) {
 				e2.printStackTrace();

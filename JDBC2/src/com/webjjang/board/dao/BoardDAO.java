@@ -19,6 +19,7 @@ public class BoardDAO {
 	
 	
 	public List<BoardVO> list(){
+		System.out.println("BoardDAO.list()");
 		List<BoardVO> list =null;
 		
 		//예외처리
@@ -26,8 +27,8 @@ public class BoardDAO {
 			//1,2
 			con = DB.getConnection();
 			//3.sql
-			String sql = "select no, title, writer, writeDate, hit from board "
-					+ " order by bo desc";
+			String sql = "select no, title, content, writer, writeDate, hit from board "
+					+ " order by no desc";
 			//4.실행객체
 			pstmt = con.prepareStatement(sql);
 			//5.실행 
@@ -46,8 +47,8 @@ public class BoardDAO {
 					vo.setWriter(rs.getString("writer"));
 					vo.setWriteDate(rs.getString("writeDate"));
 					vo.setHit(rs.getLong("hit"));
-					
-					//vo를 list에 담기
+//vo를 list에 담기
+					list.add(vo);
 				}
 				
 			}// end of if  if(rs != null) 
@@ -61,8 +62,11 @@ public class BoardDAO {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
-
+		} // end of try
+		
+		System.out.println("BoardDAO.list().list" + list);
+		
+		
 		return list;
 		
 	}

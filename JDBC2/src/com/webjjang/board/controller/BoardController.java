@@ -4,11 +4,17 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.webjjang.board.service.BoardListService;
+import com.webjjang.board.service.BoardViewService;
 import com.webjjang.board.vo.BoardVO;
 import com.webjjang.print.BoardPrint;
 
 /**
- * 요구한 내용을 가지고 어떤 객체를 실행할지 정해 주는 클래스
+ * <h1>BoardController</h1>
+ * Controller - 요구한 내용을 가지고 어떤 객체를 실행할지 정해 주는 클래스<br>
+ * 			- 필요한 데이터수집하고 실행되는 객체에 넘겨준다.
+ * 
+ * 
+ * 
  * @author zune
  *
  */
@@ -50,6 +56,20 @@ public class BoardController {
 			case "0":
 				System.out.println("프로그램을 종료합니다.");
 				System.exit(0);
+			case "2":
+				//글보기를 위해서 필요한 정보 - 글번호를 입력받는다.
+				System.out.println(">> 번호 : " );
+				String strNO = scanner.nextLine();
+				long no = Long.parseLong(strNO);
+				//게시판 글보기 처리 -> 호출하고 생성한다.:Controller - service - DAO
+				BoardViewService boardViewService = new BoardViewService();
+				BoardVO vo = boardViewService.service(no);
+				//데이터 확인용 출력
+				System.out.println("BoardController.main().vo-" + vo);
+				boardPrint = new BoardPrint();
+				boardPrint.view(vo);
+				break;
+				
 
 			default:
 				break;

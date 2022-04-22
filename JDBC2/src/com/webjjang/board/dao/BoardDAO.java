@@ -70,6 +70,51 @@ public class BoardDAO {
 		return list;
 		
 	}
+
+	//게시판 글보기 처리 메서드
+	public BoardVO view(long no) {
+		BoardVO vo = null;
+		
+		//예외처리
+		try {
+			//1.2 연결객체를 이용해서 사용
+			con = DB.getConnection();
+			//3. sql 작성
+			String sql = "select no, title, content, writer, writeDate, hit "
+					+ "from board where no = ?";
+			//4. 실행객체를 & 데이터 세팅
+			pstmt = con.prepareStatement(sql);
+			pstmt.setLong(1, no);
+			//5.실행하면
+			rs = pstmt.executeQuery();
+			//6.표시 & 데이터저장
+			if(rs != null && rs.next()) {
+			vo = new BoardVO();
+			vo.setNo(rs.getLong("no"));
+			vo.setTitle(rs.getString("title"));
+			vo.setContent(rs.getString("content"));
+			vo.setWriter(rs.getString("writer"));
+			vo.setWriteDate(rs.getString("writeDate"));
+			vo.setHit(rs.getLong("no"));
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				DB.close(con, pstmt, rs);
+				
+				
+			}catch (Exception e) {
+				e.printStackTrace();
+			} 
+		}
+		
+		System.out.println("BoardDAO.view(),vo-" + vo);
+		//데이터 가져오기 처리
+		return null;
+	}
 	
 
 }

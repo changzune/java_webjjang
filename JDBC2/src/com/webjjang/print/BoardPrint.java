@@ -1,7 +1,5 @@
 package com.webjjang.print;
-
 import java.util.List;
-
 import com.webjjang.board.vo.BoardVO;
 
 public class BoardPrint {
@@ -29,6 +27,22 @@ public class BoardPrint {
 	
 		System.out.println();
 	}//end of list();
-
-	public void view
+	
+	public void view(BoardVO vo) {
+		//제목
+		System.out.println("  +-------------");
+		System.out.println("   게시판 글보기  ");
+		System.out.println("  +-------------");
+		
+		//데이터 출력 ~ 항목이름 :데이터
+		System.out.println("=======================================");
+		System.out.println("번호:  " + vo.getNo());
+		System.out.println("제목:  " + vo.getTitle());
+		System.out.println("내용:  " + vo.getContent());
+		System.out.println("작성자:  " + vo.getWriter());
+		System.out.println("작성일:  " + vo.getWriteDate());
+		System.out.println("조회수:  " + vo.getHit());
+		System.out.println("=======================================");
+		System.out.println();
+	}
 }

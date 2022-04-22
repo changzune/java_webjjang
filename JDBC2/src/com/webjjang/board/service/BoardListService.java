@@ -11,8 +11,9 @@ public class BoardListService {
 		//생성하고 호출한 결과를 리턴한다. Controller-service - DAO
 		BoardDAO dao = new BoardDAO();
 		return dao.list();
-		
-		
+
 	}
+	
+	
 
 }
